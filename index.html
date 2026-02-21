@@ -15,6 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- font awesome  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         * {
             font-family: "Geist", sans-serif;
@@ -22,7 +25,7 @@
     </style>
 </head>
 
-<body class="bg-[#F8FAFC]">
+<body class="bg-[#F8FAFC] px-6">
     <header class="max-w-[1110px] mx-auto py-[60px] border-b-1 border-[#E6E7E9] mb-[30px]">
         <h1 class="text-[32px] text-[#002C5C] font-bold mb-5">Job Application Tracker</h1>
         <div class="grid grid-cols-3 gap-4">
@@ -42,11 +45,48 @@
     </header>
 
 
-    <div class="btns space-x-2 ">
-        <button class="btn w-20 h-8 font-medium bg-[#3B82F6] text-white">All</button>
-        <button class="btn w-20 h-8 font-medium bg-white text-[#64748B] border-1 border-[#F1F2F4] ">Interview</button>
-        <button class="btn w-20 h-8 font-medium bg-white text-[#64748B] border-1 border-[#F1F2F4]">Rejected</button>
+    <div class="max-w-[1110px] mx-auto  btns space-x-2 mb-4">
+        <button onclick="changeBtnColor('allBtn')" id="allBtn"
+            class="btn w-20 h-8 font-medium bg-[#3B82F6] text-white">All</button>
+        <button onclick="changeBtnColor('interviewBtn')" id="interviewBtn"
+            class="btn w-20 h-8 font-medium bg-white text-[#64748B] border-1 border-[#F1F2F4] ">Interview</button>
+        <button onclick="changeBtnColor('rejectedBtn')" id="rejectedBtn"
+            class="btn w-20 h-8 font-medium bg-white text-[#64748B] border-1 border-[#F1F2F4]">Rejected</button>
     </div>
+
+    <main id="allInterContainer" class="max-w-[1110px] mx-auto  space-y-4 ">
+        <div class="card bg-white p-6  flex-row justify-between">
+            <div class=" ">
+                <h1 class="text-[18px] font-semibold text-[#Mobile First Corp]">Mobile First Corp</h1>
+                <p class="text-[#64748B] mb-5">React Native Developer</p>
+                <p class="text-[#64748B] mb-5">Remote
+                    •
+                    Full-time
+                    •
+                    $130,000 - $175,000</p>
+
+                <button class="btn bg-[#EEF4FF] w-[115px] h-9 text-black">Not Applied</button>
+                <p class="text-[#323B49] mt-2 text-sm">Build cross-platform mobile applications using React Native. Work
+                    on products used by millions of users worldwide.</p>
+                <div class="card-btns flex gap-3 mt-5">
+                    <button class="btn btn-success btn-outline">Interview</button>
+                    <button class="btn btn-error btn-outline">Rejected</button>
+                </div>
+            </div>
+            <div class="">
+                <div id="deleteBtn" class="w-8 h-8 rounded-full p-4 border-1 border-[#F1F2F4] flex justify-center items-center"><i class="fa-regular fa-trash-can"></i></div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>
