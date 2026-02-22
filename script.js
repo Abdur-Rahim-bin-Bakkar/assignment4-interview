@@ -159,8 +159,48 @@ document.getElementById('mainEvent').addEventListener('click',function(e){
     // console.log('clicked',e.target)
     if(e.target.classList.contains("rounded-full") || e.target.classList.contains('fa-regular')){
 
-        e.target.closest('.card').remove()
+        let card =  e.target.closest('.card');
+        let company = card.querySelector('.company').innerText
+        interviewArray = interviewArray.filter(itme=> itme.company !== company)
+        rejectAray = rejectAray.filter(itme=> itme.company !== company)
+        card.remove()
         setNumbers()
+        createInterview()
+        createReject()
+    //     createInterview()
+    //     createReject() 
+    //     if(interviewArray.length === 0){
+    //     let div = document.createElement('div')
+    //     div.innerHTML = `
+    //      <section class=" max-w-[1110px] mx-auto  space-y-4  pb-10">
+
+    //         <div class="card  h-[400px] bg-white justify-center items-center">
+    //             <img src="jobs.png" alt="" class="w-25 mb-5">
+    //             <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+    //             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+    //         </div>
+    //     </section>
+        
+    //     `
+    //  interviewContainer.appendChild(div)  
+    
+    //     }
+    //     if(rejectAray.length === 0){
+    //     let div = document.createElement('div')
+    //     div.innerHTML = `
+    //      <section  class=" max-w-[1110px] mx-auto  space-y-4  pb-10">
+
+    //         <div class="card  h-[400px] bg-white justify-center items-center">
+    //             <img src="jobs.png" alt="" class="w-25 mb-5">
+    //             <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+    //             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+    //         </div>
+    //     </section>
+        
+    //     `
+    //  rejectContainer.appendChild(div)  
+
+    // }
     }
 })
 
