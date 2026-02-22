@@ -86,8 +86,7 @@ function setNumbers() {
 }
 setNumbers()
 
-
-allInterContainer.addEventListener("click", function (e) {
+document.getElementById('mainEvent').addEventListener("click", function (e) {
     if (e.target.classList.contains('interview')) {
 
         let parent = e.target.parentNode.parentNode.parentNode;
@@ -143,7 +142,16 @@ allInterContainer.addEventListener("click", function (e) {
 
     }
 })
+// interviewContainer.addEventListener('click',function(e){
+//     if(e.target.classList.contains("reject")){
 
+//         // let deleter = e.target.closest('.card');
+//         // interviewContainer.removeChild(e.target)
+
+//         console.log(e.target)
+//         // this.remove(e.target)
+//     }
+// })
 
 function createInterview() {
     interviewContainer.innerHTML = ''
