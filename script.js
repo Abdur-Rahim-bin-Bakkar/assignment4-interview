@@ -2,10 +2,13 @@ let applieds = document.getElementsByClassName('applied');
 for (let i of applieds) {
     i.classList.add('hidden')
 }
+
+let corentStatus = ''
 let allInterContainer = document.getElementById('allInterContainer');
 let interviewContainer = document.getElementById('interviewContainer')
 let rejectContainer = document.getElementById('rejectContainer')
 function changeBtnColor(id) {
+    corentStatus = id;
     let allBtn = document.getElementById('allBtn')
     let InterviewBtn = document.getElementById('interviewBtn')
     let RejectedBtn = document.getElementById('rejectedBtn')
@@ -109,6 +112,11 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
         if (!exiest) {
             interviewArray.push(obj)
         }
+        rejectAray = rejectAray.filter(item => item.company !== obj.company)
+        if (corentStatus === 'rejectedBtn') {
+            createReject()
+        }
+        createReject()
         createInterview()
         setNumbers()
 
@@ -136,9 +144,15 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
         if (!exiest) {
             rejectAray.push(obj)
         }
-        // createInterview()
-        setNumbers()
+        interviewArray = interviewArray.filter(item => item.company !== obj.company)
+
+        if (corentStatus === "interviewBtn") {
+
+            // createReject()
+            createInterview()
+        }
         createReject()
+        setNumbers()
 
     }
 })
@@ -155,6 +169,21 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
 
 function createInterview() {
     interviewContainer.innerHTML = ''
+    // if(interviewArray.length === 0){
+    //     let div = document.createElement('div')
+    //     div.innerHTML = `
+    //      <section id="interviewContainer" class=" max-w-[1110px] mx-auto  space-y-4 hidden pb-10">
+
+    //         <div class="card  h-[400px] bg-white justify-center items-center">
+    //             <img src="jobs.png" alt="" class="w-25 mb-5">
+    //             <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+    //             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+    //         </div>
+    //     </section>
+
+    //     `
+    //  interviewContainer.appendChild(div)   
+    // }
     for (let item of interviewArray) {
         let div = document.createElement('div')
         div.innerHTML = `
