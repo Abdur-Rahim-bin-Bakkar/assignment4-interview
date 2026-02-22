@@ -167,6 +167,19 @@ document.getElementById('mainEvent').addEventListener('click',function(e){
         setNumbers()
         createInterview()
         createReject()
+        if(allInterContainer.children.length === 0){
+            allInterContainer.innerHTML = `
+         <section id="interviewContainer" class=" max-w-[1110px] mx-auto  space-y-4  pb-10">
+
+            <div class="card  h-[400px] bg-white justify-center items-center">
+                <img src="jobs.png" alt="" class="w-25 mb-5">
+                <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+                <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+        
+        `
+        }
     //     createInterview()
     //     createReject() 
     //     if(interviewArray.length === 0){
