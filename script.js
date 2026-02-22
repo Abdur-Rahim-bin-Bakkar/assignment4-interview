@@ -122,7 +122,6 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
 
     }
     else if (e.target.classList.contains('reject')) {
-        console.log('reject clicked')
         let parent = e.target.parentNode.parentNode.parentNode;
         let company = parent.querySelector('.company').innerText
         let skil = parent.querySelector('.skil').innerText
@@ -156,34 +155,33 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
 
     }
 })
-// interviewContainer.addEventListener('click',function(e){
-//     if(e.target.classList.contains("reject")){
+document.getElementById('mainEvent').addEventListener('click',function(e){
+    // console.log('clicked',e.target)
+    if(e.target.classList.contains("rounded-full") || e.target.classList.contains('fa-regular')){
 
-//         // let deleter = e.target.closest('.card');
-//         // interviewContainer.removeChild(e.target)
-
-//         console.log(e.target)
-//         // this.remove(e.target)
-//     }
-// })
+        e.target.closest('.card').remove()
+        setNumbers()
+    }
+})
 
 function createInterview() {
     interviewContainer.innerHTML = ''
-    // if(interviewArray.length === 0){
-    //     let div = document.createElement('div')
-    //     div.innerHTML = `
-    //      <section id="interviewContainer" class=" max-w-[1110px] mx-auto  space-y-4 hidden pb-10">
+    if(interviewArray.length === 0){
+        let div = document.createElement('div')
+        div.innerHTML = `
+         <section id="interviewContainer" class=" max-w-[1110px] mx-auto  space-y-4  pb-10">
 
-    //         <div class="card  h-[400px] bg-white justify-center items-center">
-    //             <img src="jobs.png" alt="" class="w-25 mb-5">
-    //             <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
-    //             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
-    //         </div>
-    //     </section>
+            <div class="card  h-[400px] bg-white justify-center items-center">
+                <img src="jobs.png" alt="" class="w-25 mb-5">
+                <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+                <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+            </div>
+        </section>
         
-    //     `
-    //  interviewContainer.appendChild(div)   
-    // }
+        `
+     interviewContainer.appendChild(div)  
+     return; 
+    }
     for (let item of interviewArray) {
         let div = document.createElement('div')
         div.innerHTML = `
@@ -212,6 +210,22 @@ function createInterview() {
 }
 function createReject() {
     rejectContainer.innerHTML = ''
+    if(rejectAray.length ===0){
+        let div = document.createElement('div')
+        div.innerHTML = `
+         <section id="interviewContainer" class=" max-w-[1110px] mx-auto  space-y-4  pb-10">
+
+            <div class="card  h-[400px] bg-white justify-center items-center">
+                <img src="jobs.png" alt="" class="w-25 mb-5">
+                <h1 class="text-[#002C5C] text-2xl font-semibold">No jobs available</h1>
+                <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+        
+        `
+        rejectContainer.appendChild(div)
+        return; 
+    }
     for (let item of rejectAray) {
         let div = document.createElement('div')
         div.innerHTML = `
