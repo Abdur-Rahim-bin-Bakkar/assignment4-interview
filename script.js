@@ -8,7 +8,7 @@ let allInterContainer = document.getElementById('allInterContainer');
 let interviewContainer = document.getElementById('interviewContainer')
 let rejectContainer = document.getElementById('rejectContainer')
 function changeBtnColor(id) {
-    corentStatus = id;
+    corentStatus  = id;
     let allBtn = document.getElementById('allBtn')
     let InterviewBtn = document.getElementById('interviewBtn')
     let RejectedBtn = document.getElementById('rejectedBtn')
@@ -112,11 +112,11 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
         if (!exiest) {
             interviewArray.push(obj)
         }
-        rejectAray = rejectAray.filter(item => item.company !== obj.company)
-        if (corentStatus === 'rejectedBtn') {
+        rejectAray = rejectAray.filter(item=> item.company !== obj.company)
+        if(corentStatus === 'rejectedBtn'){
             createReject()
         }
-        createReject()
+        // createReject()
         createInterview()
         setNumbers()
 
@@ -144,9 +144,9 @@ document.getElementById('mainEvent').addEventListener("click", function (e) {
         if (!exiest) {
             rejectAray.push(obj)
         }
-        interviewArray = interviewArray.filter(item => item.company !== obj.company)
+        interviewArray = interviewArray.filter(item=> item.company !== obj.company)
 
-        if (corentStatus === "interviewBtn") {
+        if(corentStatus === "interviewBtn"){
 
             // createReject()
             createInterview()
@@ -180,7 +180,7 @@ function createInterview() {
     //             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
     //         </div>
     //     </section>
-
+        
     //     `
     //  interviewContainer.appendChild(div)   
     // }
